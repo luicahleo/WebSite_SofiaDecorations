@@ -1,0 +1,67 @@
+services:
+  db:
+    image: postgres:16
+    entrypoint:
+      - sh
+      - -c
+      - |
+        export POSTGRES_USER=$$(tr -d '\r\n' < /run/secrets/pg_superuser)
+        export POSTGRES_PASSWORD=$$(tr -d '\r\n' < /run/secrets/pg_superuser_password)
+        exec docker-entrypoint.sh postgres
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_HOST_AUTH_METHOD=scram-sha-256
+      - POSTGRES_INITDB_ARGS=--auth-host=scram-sha-256 --auth-local=scram-sha-256 --locale=C.UTF-8
+    secrets:
+      - pg_superuser
+      - pg_superuser_password
+      - odoo_db_user
+      - odoo_db_password
+    volumes:
+      - sofia-db-data:/var/lib/postgresql/data
+      - ./init-db.sh:/docker-entrypoint-initdb.d/init-db.sh:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  odoo:
+    image: odoo:17
+    depends_on:
+      db:
+        condition: service_healthy
+    entrypoint:
+      - /bin/bash
+      - -c
+      - |
+        export USER=$(tr -d '\r\n' < /run/secrets/odoo_db_user)
+        export PASSWORD=$(tr -d '\r\n' < /run/secrets/odoo_db_password)
+        exec /entrypoint.sh odoo
+    ports:
+      - "8069:8069"
+    environment:
+      - HOST=db
+      - PORT=5432
+      - LANG=es_ES.UTF-8
+      - LC_ALL=es_ES.UTF-8
+    secrets:
+      - odoo_db_user
+      - odoo_db_password
+    volumes:
+      - sofia-web-data:/var/lib/odoo
+
+secrets:
+  pg_superuser:
+    file: ./secrets/pg_superuser.txt
+  pg_superuser_password:
+    file: ./secrets/pg_superuser_password.txt
+  odoo_db_user:
+    file: ./secrets/db_user.txt
+  odoo_db_password:
+    file: ./secrets/db_password.txt
+
+volumes:
+  sofia-db-data:
+  sofia-web-data:
