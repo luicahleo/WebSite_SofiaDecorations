@@ -51,6 +51,8 @@ services:
       - odoo_db_password
     volumes:
       - sofia-web-data:/var/lib/odoo
+      - ./odoo-source:/usr/lib/python3/dist-packages/odoo
+      - ./custom-addons:/mnt/extra-addons
 
 secrets:
   pg_superuser:
