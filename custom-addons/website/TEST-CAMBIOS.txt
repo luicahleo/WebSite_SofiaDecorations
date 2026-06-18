@@ -1,0 +1,8 @@
+✅ Este archivo demuestra que los cambios locales se sincronizan al contenedor.
+
+Cambios se reflejan según el tipo:
+- Archivos estáticos (CSS, JS, IMG): Inmediato con F5
+- Vistas XML: Necesita actualizar módulo
+- Python (models, controllers): Necesita reiniciar contenedor
+
+Creado: 2026-06-18

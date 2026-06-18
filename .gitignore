@@ -1,4 +1,4 @@
-# Código fuente de Odoo (viene del contenedor)
+# Código fuente de Odoo (LOCAL - solo referencia, NO montar en contenedor)
 odoo-source/
 
 # Secrets y credenciales
