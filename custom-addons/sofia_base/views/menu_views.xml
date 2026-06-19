@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Sofia Decorations Main Menu -->
+        <menuitem 
+            id="menu_sofia_decorations_root" 
+            name="Sofia Decorations"
+            sequence="100"/>
+
+        <!-- Sofia Decorations Configuration Submenu -->
+        <menuitem 
+            id="menu_sofia_decorations_config" 
+            name="Configuration"
+            parent="menu_sofia_decorations_root"
+            sequence="10"/>
+    </data>
+</odoo>

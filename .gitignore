@@ -35,3 +35,12 @@ Thumbs.db
 # Logs
 *.log
 logs/
+
+# Odoo temp files
+.odoo_hide_modules
+odoo.db
+odoo-bin.pid
+
+# Datos persistentes de volúmenes
+sofia-db-data/
+sofia-web-data/
