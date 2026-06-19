@@ -70,5 +70,9 @@ echo   psql     - Accede a la base de datos PostgreSQL
 echo   restart  - Reinicia el contenedor Odoo
 echo   rebuild  - Reconstruye los contenedores
 echo   clean    - Limpia archivos temporales
+echo.
+echo 🔍 Herramientas de validación:
+echo   check    - Valida código (mypy + pylint + flake8)
+echo   fix      - Formatea código automáticamente (black + isort)
 
 :end

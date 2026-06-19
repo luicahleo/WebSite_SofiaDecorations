@@ -1,4 +1,4 @@
-"""Sofia Base module."""
+"""Sofia Hola Mundo module."""
 
 from . import models
 

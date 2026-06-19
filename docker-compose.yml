@@ -38,7 +38,7 @@ services:
       - |
         export USER=$(tr -d '\r\n' < /run/secrets/odoo_db_user)
         export PASSWORD=$(tr -d '\r\n' < /run/secrets/odoo_db_password)
-        exec /entrypoint.sh odoo
+        exec /entrypoint.sh odoo --addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/extra-addons
     ports:
       - "8069:8069"
     environment:

@@ -1,0 +1,20 @@
+# Herramientas de desarrollo Python para Sofia Decorations
+# (Odoo se instala con Docker, no localmente)
+
+# Type Checking (como C# compilation)
+mypy==2.1.0
+
+# Linting y Code Quality
+pylint==2.17.4
+flake8==7.3.0
+
+# Code Formatting
+black==26.5.1
+isort==5.12.0
+
+# Testing
+pytest==7.3.1
+pytest-cov==4.1.0
+
+# Pre-commit hooks
+pre-commit==3.3.2

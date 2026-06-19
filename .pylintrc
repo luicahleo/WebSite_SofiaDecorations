@@ -1,0 +1,24 @@
+[MASTER]
+init-hook='import sys; sys.path.insert(0, "custom-addons")'
+load-plugins=pylint.extensions.docparams
+
+[MESSAGES CONTROL]
+disable=
+    missing-module-docstring,
+    missing-class-docstring,
+    missing-function-docstring,
+    too-few-public-methods,
+    protected-access,
+    import-outside-toplevel,
+    fixme,
+
+[FORMAT]
+max-line-length=120
+indent-string='    '
+
+[DESIGN]
+max-attributes=10
+max-arguments=10
+
+[SIMILARITIES]
+min-similarity-lines=5

@@ -1,25 +1,22 @@
 {
-    "name": "Sofia Decorations - Base",
+    "name": "Sofia - Hola Mundo",
     "version": "17.0.1.0.0",
     "category": "Custom",
-    "summary": "Módulo base para Sofia Decorations",
+    "summary": "Módulo simple que dice Hola Mundo",
     "description": """
-        Módulo base que contiene configuraciones y funcionalidades
-        comunes para toda la aplicación Sofia Decorations.
+        Este es nuestro primer módulo personalizado.
+        Demuestra cómo crear un modelo simple y sus vistas.
     """,
     "author": "Sofia Decorations Development Team",
     "website": "https://sofiadecoraciones.com",
     "license": "LGPL-3",
     "depends": [
         "base",
-        "sale",
-        "stock",
-        "account",
+        "sofia_base",
     ],
     "data": [
-        "views/menu_views.xml",
+        "views/hola_mundo_views.xml",
     ],
-    "demo": [],
     "installable": True,
     "auto_install": False,
     "application": False,
